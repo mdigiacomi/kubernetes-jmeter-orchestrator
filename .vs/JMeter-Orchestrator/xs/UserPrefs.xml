@@ -3,7 +3,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="JMeter-Orchestrator/App_Code/JMeterExecutor.cs">
     <Files>
       <File FileName="JMeter-Orchestrator/Program.cs" Line="50" Column="47" />
-      <File FileName="JMeter-Orchestrator/App_Code/JMeterExecutor.cs" Line="35" Column="10" />
+      <File FileName="JMeter-Orchestrator/App_Code/JMeterExecutor.cs" Line="18" Column="57" />
       <File FileName="JMeter-Orchestrator/App_Code/JMXWriter.cs" Line="11" Column="176" />
       <File FileName="jmeter-sample-format.jmx" Line="54" Column="60" />
     </Files>
@@ -13,13 +13,12 @@
           <Node name="JMeter-Orchestrator" expanded="True">
             <Node name="Solution Items" expanded="True" />
             <Node name="JMeter-Orchestrator" expanded="True">
-              <Node name="App_Code" expanded="True" selected="True" />
+              <Node name="App_Code" expanded="True">
+                <Node name="JMeterExecutor.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
