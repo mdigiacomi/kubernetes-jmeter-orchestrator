@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Apache.NMS;
 using Apache.NMS.Util;
 using JMeter_Orchestrator.App_Code;
@@ -7,13 +9,15 @@ namespace JMeter_Orchestrator
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task<int> Main(string[] args)
         {
-            // Example connection strings:
-            //    activemq:tcp://activemqhost:61616
-            //    stomp:tcp://activemqhost:61613
-            //    ems:tcp://tibcohost:7222
-            //    msmq://localhost
+            var cts = new CancellationTokenSource();
+
+            AppDomain.CurrentDomain.ProcessExit += (s, e) =>
+            {
+                Console.WriteLine("ProcessExit!");
+                cts.Cancel();
+            };
 
             Uri connecturi = new Uri("activemq:tcp://activemq.digitaladrenalin.net:61616");
 
@@ -60,14 +64,10 @@ namespace JMeter_Orchestrator
                         Console.WriteLine("Closing ActiveMQ Connection");
                         //Stops the connection
                         connection.Stop();
-
-                        AppDomain.CurrentDomain.ProcessExit += (s, e) =>
-                        {
-                            controlloop = false;
-                        };
                     }
                 }
             }
+            return 0;
         }
     }
 }
