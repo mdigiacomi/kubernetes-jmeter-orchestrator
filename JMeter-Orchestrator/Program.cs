@@ -19,6 +19,8 @@ namespace JMeter_Orchestrator
 
             Console.WriteLine("About to connect to " + connecturi);
 
+            bool controlloop = true;
+
             // NOTE: ensure the nmsprovider-activemq.config file exists in the executable folder.
             IConnectionFactory factory = new NMSConnectionFactory(connecturi);
 
@@ -32,9 +34,7 @@ namespace JMeter_Orchestrator
                 // Create a consumer and producer
                 using (IMessageConsumer consumer = session.CreateConsumer(destination))
                 {
-
-
-                    while (true)
+                    while (controlloop)
                     {
                         Console.WriteLine("Opening ActiveMQ Connection");
                         // Start the connection
@@ -60,6 +60,11 @@ namespace JMeter_Orchestrator
                         Console.WriteLine("Closing ActiveMQ Connection");
                         //Stops the connection
                         connection.Stop();
+
+                        AppDomain.CurrentDomain.ProcessExit += (s, e) =>
+                        {
+                            controlloop = false;
+                        };
                     }
                 }
             }
