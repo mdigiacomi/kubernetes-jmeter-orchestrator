@@ -32,12 +32,14 @@ namespace JMeter_Orchestrator
                 // Create a consumer and producer
                 using (IMessageConsumer consumer = session.CreateConsumer(destination))
                 {
-                    Console.WriteLine("Opening ActiveMQ Connection");
-                    // Start the connection
-                    connection.Start();
+
 
                     while (true)
                     {
+                        Console.WriteLine("Opening ActiveMQ Connection");
+                        // Start the connection
+                        connection.Start();
+
                         // Consume a message
                         if (!(consumer.Receive() is ITextMessage message))
                         {
@@ -52,12 +54,13 @@ namespace JMeter_Orchestrator
                             Console.WriteLine("Executing JMeter Tests");
                             JMeterExecutor.ExecuteJmeter();
                             Console.WriteLine("Process Finished");
+                            message.Acknowledge();
                         }
-                    }
 
-                    Console.WriteLine("Closing ActiveMQ Connection");
-                    //Stops the connection
-                    connection.Stop();
+                        Console.WriteLine("Closing ActiveMQ Connection");
+                        //Stops the connection
+                        connection.Stop();
+                    }
                 }
             }
         }

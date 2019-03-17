@@ -27,7 +27,7 @@ metadata:
   name: jmeter-orchestrator
   namespace: jmeter-orchestrator
 spec:
-  replicas: 1
+  replicas: 10
   template:
     metadata:
       labels:
@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: jmeter-orchestrator
-        image: registry.gitlab.com/mdigiacomi/jmeter-orchestrator:latest
+        image: registry.gitlab.com/mdigiacomi-kubernetes/kubernetes-jmeter-orchestrator:latest
         imagePullPolicy: Always
       imagePullSecrets:
         - name: gitlab-auth
