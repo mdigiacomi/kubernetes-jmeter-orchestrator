@@ -37,7 +37,7 @@ metadata:
   name: jmeter-orchestrator
   namespace: jmeter-orchestrator
 spec:
-  replicas: 3
+  replicas: 7
   template:
     metadata:
       labels:
