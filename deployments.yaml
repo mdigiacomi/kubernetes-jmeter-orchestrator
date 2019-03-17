@@ -4,6 +4,17 @@ kind: Namespace
 metadata:
   name: jmeter-orchestrator
 ---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jmeter-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+---
 kind: Service
 apiVersion: v1
 metadata:
@@ -19,7 +30,6 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 80
-
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -44,5 +54,8 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
+        volumeMounts:
+        - mountPath: "/tmp"
+          name: jmeter-claim
       imagePullSecrets:
         - name: gitlab-auth

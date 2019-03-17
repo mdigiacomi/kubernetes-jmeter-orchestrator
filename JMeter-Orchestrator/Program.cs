@@ -54,9 +54,9 @@ namespace JMeter_Orchestrator
                             Console.WriteLine("Received message with ID:   " + message.NMSMessageId);
                             Console.WriteLine("Received message with text: " + message.Text);
                             Console.WriteLine("Writing To File");
-                            JMXWriter.writeJMXFile(message.Text);
+                            JMXWriter.writeJMXFile(message);
                             Console.WriteLine("Executing JMeter Tests");
-                            JMeterExecutor.ExecuteJmeter();
+                            JMeterExecutor.ExecuteJmeter(message);
                             Console.WriteLine("Process Finished");
                             message.Acknowledge();
                         }

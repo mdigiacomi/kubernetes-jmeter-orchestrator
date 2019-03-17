@@ -1,27 +1,37 @@
 ﻿using System;
 using System.Diagnostics;
+using Apache.NMS;
 
 namespace JMeter_Orchestrator.App_Code
 {
     public class JMeterExecutor
     {
-        public static string ExecuteJmeter()
+        public static string ExecuteJmeter(ITextMessage jmxmessage)
         {
-            var process = new Process()
+            try
             {
-                StartInfo = new ProcessStartInfo
+                var process = new Process()
                 {
-                    FileName = "jmeter",
-                    Arguments = $" -n -t /tmp/jmeter-tests.jmx -l /tmp/testresults.jtl",
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                }
-            };
-            process.Start();
-            string result = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();
-            return result;
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = "jmeter",
+                        Arguments = $" -n -t /tmp/" + jmxmessage.Properties["TeamID"] + "/" + jmxmessage.Properties["Application"] + "/" + jmxmessage.Properties["RunID"] + "/jmeter-tests.jmx -l /tmp/" + jmxmessage.Properties["TeamID"] + "/" + jmxmessage.Properties["Application"] + "/" + jmxmessage.Properties["RunID"] + "/testresults.jtl",
+                        RedirectStandardOutput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                    }
+                };
+                process.Start();
+                string result = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+                Console.WriteLine(result);
+                return result;
+            }
+            catch(Exception error)
+            {
+                Console.WriteLine(error.Message);
+                return "Error - " + error.Message;
+            }
         }
     }
 }
