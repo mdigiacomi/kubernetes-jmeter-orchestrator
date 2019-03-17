@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{C76F3459-2354-4239-9B01-849B379550E1}|Default">
+  <MonoDevelop.Ide.ItemProperties.JMeter-Orchestrator PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="JMeter-Orchestrator/Program.cs">
+    <Files>
+      <File FileName="JMeter-Orchestrator/Program.cs" Line="40" Column="23" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="JMeter-Orchestrator" expanded="True">
+            <Node name="JMeter-Orchestrator" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -761,11 +761,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/JMeter-Orchestrator.csproj",
+      "projectUniqueName": "/Users/michaeldigiacomi/Source/kubernetes-jmeter-orchestrator/JMeter-Orchestrator/JMeter-Orchestrator.csproj",
       "projectName": "JMeter-Orchestrator",
-      "projectPath": "/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/JMeter-Orchestrator.csproj",
+      "projectPath": "/Users/michaeldigiacomi/Source/kubernetes-jmeter-orchestrator/JMeter-Orchestrator/JMeter-Orchestrator.csproj",
       "packagesPath": "/Users/michaeldigiacomi/.nuget/packages/",
-      "outputPath": "/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/obj/",
+      "outputPath": "/Users/michaeldigiacomi/Source/kubernetes-jmeter-orchestrator/JMeter-Orchestrator/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

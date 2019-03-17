@@ -36,20 +36,23 @@ namespace JMeter_Orchestrator
                     // Start the connection
                     connection.Start();
 
-                    // Consume a message
-                    if (!(consumer.Receive() is ITextMessage message))
+                    while (true)
                     {
-                        Console.WriteLine("No message received!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Received message with ID:   " + message.NMSMessageId);
-                        Console.WriteLine("Received message with text: " + message.Text);
-                        Console.WriteLine("Writing To File");
-                        JMXWriter.writeJMXFile(message.Text);
-                        Console.WriteLine("Executing JMeter Tests");
-                        JMeterExecutor.ExecuteJmeter();
-                        Console.WriteLine("Process Finished");
+                        // Consume a message
+                        if (!(consumer.Receive() is ITextMessage message))
+                        {
+                            Console.WriteLine("No message received!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Received message with ID:   " + message.NMSMessageId);
+                            Console.WriteLine("Received message with text: " + message.Text);
+                            Console.WriteLine("Writing To File");
+                            JMXWriter.writeJMXFile(message.Text);
+                            Console.WriteLine("Executing JMeter Tests");
+                            JMeterExecutor.ExecuteJmeter();
+                            Console.WriteLine("Process Finished");
+                        }
                     }
 
                     Console.WriteLine("Closing ActiveMQ Connection");
