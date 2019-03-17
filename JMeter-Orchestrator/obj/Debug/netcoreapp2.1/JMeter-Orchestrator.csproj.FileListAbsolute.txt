@@ -1,0 +1,11 @@
+/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/obj/Debug/netcoreapp2.1/JMeter-Orchestrator.csprojAssemblyReference.cache
+/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/obj/Debug/netcoreapp2.1/JMeter-Orchestrator.csproj.CoreCompileInputs.cache
+/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/obj/Debug/netcoreapp2.1/JMeter-Orchestrator.AssemblyInfoInputs.cache
+/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/obj/Debug/netcoreapp2.1/JMeter-Orchestrator.AssemblyInfo.cs
+/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/bin/Debug/netcoreapp2.1/JMeter-Orchestrator.deps.json
+/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/bin/Debug/netcoreapp2.1/JMeter-Orchestrator.runtimeconfig.json
+/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/bin/Debug/netcoreapp2.1/JMeter-Orchestrator.runtimeconfig.dev.json
+/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/bin/Debug/netcoreapp2.1/JMeter-Orchestrator.dll
+/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/bin/Debug/netcoreapp2.1/JMeter-Orchestrator.pdb
+/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/obj/Debug/netcoreapp2.1/JMeter-Orchestrator.dll
+/Users/michaeldigiacomi/Projects/JMeter-Orchestrator/JMeter-Orchestrator/obj/Debug/netcoreapp2.1/JMeter-Orchestrator.pdb
