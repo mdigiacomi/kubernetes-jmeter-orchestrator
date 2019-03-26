@@ -32,5 +32,7 @@ RUN    apk update \
 	&& tar -xzf /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz -C /opt  \
 	&& rm -rf /tmp/dependencies
 
+RUN mkdir /jmeter
+
 ENV PATH $PATH:$JMETER_BIN
 ENTRYPOINT ["dotnet", "JMeter-Orchestrator.dll"]

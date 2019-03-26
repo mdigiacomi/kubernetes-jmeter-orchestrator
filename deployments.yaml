@@ -38,6 +38,8 @@ spec:
         env:
           - name: "ActiveMQ"
             value: "activemq:tcp://activemq.digitaladrenalin.net:61616"
+          - name: "QueueName"
+            value: "JMeter"
         imagePullPolicy: Always
         resources:
           requests:
