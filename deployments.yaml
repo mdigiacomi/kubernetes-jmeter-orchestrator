@@ -4,17 +4,6 @@ kind: Namespace
 metadata:
   name: jmeter-orchestrator
 ---
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: jmeter-claim
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 1Gi
----
 kind: Service
 apiVersion: v1
 metadata:
@@ -46,6 +35,9 @@ spec:
       containers:
       - name: jmeter-orchestrator
         image: registry.gitlab.com/mdigiacomi-kubernetes/kubernetes-jmeter-orchestrator:latest
+        env:
+          - name: "ActiveMQ"
+            value: "activemq:tcp://activemq.digitaladrenalin.net:61616"
         imagePullPolicy: Always
         resources:
           requests:

@@ -19,7 +19,7 @@ namespace JMeter_Orchestrator
                 cts.Cancel();
             };
 
-            Uri connecturi = new Uri("activemq:tcp://activemq.digitaladrenalin.net:61616");
+            Uri connecturi = new Uri(Environment.GetEnvironmentVariable("ActiveMQ"));
 
             Console.WriteLine("About to connect to " + connecturi);
 
