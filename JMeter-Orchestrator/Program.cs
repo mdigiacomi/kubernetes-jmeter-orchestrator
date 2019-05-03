@@ -19,7 +19,7 @@ namespace JMeter_Orchestrator
                 cts.Cancel();
             };
 
-            Uri connecturi = new Uri(Environment.GetEnvironmentVariable("ActiveMQ"));
+            Uri connecturi = new Uri(Environment.GetEnvironmentVariable("ActiveMQ-Server"));
 
             Console.WriteLine("About to connect to " + connecturi);
 
@@ -28,7 +28,7 @@ namespace JMeter_Orchestrator
             // NOTE: ensure the nmsprovider-activemq.config file exists in the executable folder.
             IConnectionFactory factory = new NMSConnectionFactory(connecturi);
 
-            using (IConnection connection = factory.CreateConnection())
+            using (IConnection connection = factory.CreateConnection(Environment.GetEnvironmentVariable("ActiveMQ-UserName"), Environment.GetEnvironmentVariable("ActiveMQ-Password")))
             using (ISession session = connection.CreateSession())
             {
 

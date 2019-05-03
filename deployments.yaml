@@ -7,7 +7,8 @@ metadata:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: jmeter-claim
+  name: jmeter-pvc-claim
+  namespace: jmeter-orchestrator
 spec:
   accessModes:
     - ReadWriteMany
@@ -37,7 +38,7 @@ metadata:
   name: jmeter-orchestrator
   namespace: jmeter-orchestrator
 spec:
-  replicas: 7
+  replicas: 2
   template:
     metadata:
       labels:
@@ -45,12 +46,16 @@ spec:
     spec:
       containers:
       - name: jmeter-orchestrator
-        image: registry.gitlab.com/mdigiacomi-kubernetes/kubernetes-jmeter-orchestrator:latest
+        image: michaeldigiacomi/jmeter-orchestrator:latest
         env:
-          - name: "ActiveMQ"
-            value: "activemq:tcp://activemq.digitaladrenalin.net:61616"
-          - name: "QueueName"
-            value: "JMeter"
+          - name: "ActiveMQ-Server"
+            value: "activemq:tcp://35.183.174.138:61616"
+          - name: "ActiveMQ-UserName"
+            value: admin
+          - name: "ActiveMQ-Password"
+            value: admin
+          - name: "ASPNETCORE_ENVIRONMENT"
+            value: "Development"
         imagePullPolicy: Always
         resources:
           requests:
