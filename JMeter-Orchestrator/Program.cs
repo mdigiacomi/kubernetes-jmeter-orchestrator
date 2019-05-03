@@ -32,7 +32,7 @@ namespace JMeter_Orchestrator
             using (ISession session = connection.CreateSession())
             {
 
-                IDestination destination = SessionUtil.GetDestination(session, Environment.GetEnvironmentVariable("QueueName"));
+                IDestination destination = SessionUtil.GetDestination(session, "queue://JMeter");
                 Console.WriteLine("Using destination: " + destination);
 
                 // Create a consumer and producer
