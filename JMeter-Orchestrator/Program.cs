@@ -60,7 +60,7 @@ namespace JMeter_Orchestrator
                             Console.WriteLine("Writing To File");
                             JMXWriter.writeJMXFile(jmxmessage, Folder);
                             Console.WriteLine("Executing JMeter Tests");
-                            JMeterExecutor.ExecuteJmeter(jmxmessage, Folder);
+                            JMeterExecutor.ExecuteJmeter(Folder);
                             Console.WriteLine("Process Finished");
                             jmxmessage.Acknowledge();
                         }
