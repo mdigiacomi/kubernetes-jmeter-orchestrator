@@ -59,11 +59,11 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
+            memory: "1024"
             cpu: "500m"
+          limits:
+            memory: "2048"
+            cpu: "750m"
         volumeMounts:
         - mountPath: "/JMeter"
           name: jmeter-claim

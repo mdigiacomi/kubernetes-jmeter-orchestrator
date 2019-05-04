@@ -34,5 +34,7 @@ RUN    apk update \
 
 RUN mkdir /jmeter
 
+RUN ulimit -n 8172
+
 ENV PATH $PATH:$JMETER_BIN
 ENTRYPOINT ["dotnet", "JMeter-Orchestrator.dll"]
