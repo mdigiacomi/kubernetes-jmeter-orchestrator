@@ -6,7 +6,7 @@ namespace JMeter_Orchestrator.App_Code
 {
     public class JMeterExecutor
     {
-        public static string ExecuteJmeter(ITextMessage jmxmessage)
+        public static string ExecuteJmeter(ITextMessage jmxmessage, string Folder)
         {
             try
             {
@@ -15,7 +15,7 @@ namespace JMeter_Orchestrator.App_Code
                     StartInfo = new ProcessStartInfo
                     {
                         FileName = "jmeter",
-                        Arguments = $" -n -t /JMeter/" + jmxmessage.Properties["TeamID"] + "/" + jmxmessage.Properties["Application"] + "/" + jmxmessage.NMSCorrelationID + "/" + Environment.MachineName + "-" + DateTime.Now.ToString("MMddyy-HHmmss") + "/jmeter-tests.jmx -l /tmp/JMeter/" + jmxmessage.Properties["TeamID"] + "/" + jmxmessage.Properties["Application"] + "/" + jmxmessage.NMSCorrelationID + "/" + Environment.MachineName + "-" + DateTime.Now.ToString("MMddyy-HHmmss") +  "/testresults.jtl",
+                        Arguments = $" -n -t " + Folder + "jmeter-tests.jmx -l " + Folder +  "testresults.jtl",
                         RedirectStandardOutput = true,
                         UseShellExecute = false,
                         CreateNoWindow = true,

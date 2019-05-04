@@ -45,19 +45,21 @@ namespace JMeter_Orchestrator
                         connection.Start();
 
                         // Consume a message
-                        if (!(consumer.Receive() is ITextMessage message))
+                        if (!(consumer.Receive() is ITextMessage jmxmessage))
                         {
                             Console.WriteLine("No message received!");
                         }
                         else
                         {
-                            Console.WriteLine("Received message with ID:   " + message.NMSMessageId);
+                            string Folder = "/JMeter/" + jmxmessage.Properties["TeamID"] + "/" + jmxmessage.Properties["Application"] + "/" + jmxmessage.NMSCorrelationID + "/" + Environment.MachineName + "-" + DateTime.Now.ToString("MMddyy-HHmmss") + "/";
+
+                            Console.WriteLine("Received message with ID:   " + jmxmessage.NMSMessageId);
                             Console.WriteLine("Writing To File");
-                            JMXWriter.writeJMXFile(message);
+                            JMXWriter.writeJMXFile(jmxmessage, Folder);
                             Console.WriteLine("Executing JMeter Tests");
-                            JMeterExecutor.ExecuteJmeter(message);
+                            JMeterExecutor.ExecuteJmeter(jmxmessage, Folder);
                             Console.WriteLine("Process Finished");
-                            message.Acknowledge();
+                            jmxmessage.Acknowledge();
                         }
 
                         Console.WriteLine("Closing ActiveMQ Connection");
