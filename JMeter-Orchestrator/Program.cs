@@ -53,6 +53,9 @@ namespace JMeter_Orchestrator
                         {
                             string Folder = "/JMeter/" + jmxmessage.Properties["TeamID"] + "/" + jmxmessage.Properties["Application"] + "/" + jmxmessage.NMSCorrelationID + "/" + Environment.MachineName + "-" + DateTime.Now.ToString("MMddyy-HHmmss") + "/";
 
+                            //Creating Folder for Test Results
+                            System.IO.Directory.CreateDirectory(Folder);
+
                             Console.WriteLine("Received message with ID:   " + jmxmessage.NMSMessageId);
                             Console.WriteLine("Writing To File");
                             JMXWriter.writeJMXFile(jmxmessage, Folder);
